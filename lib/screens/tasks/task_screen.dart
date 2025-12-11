@@ -53,71 +53,79 @@ class _TaskScreenState extends State<TaskScreen> {
               Task task = box.getAt(index)!;
 
               return InkWell(
-  onLongPress: () {
-    box.deleteAt(index);
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Task deleted")),
-    );
-  },
-  child: Card(
-    margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-    elevation: 3,
-    child: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          Checkbox(
-            value: task.isCompleted,
-            onChanged: (value) {
-              task.isCompleted = value!;
-              task.save();
-            },
-          ),
+                onLongPress: () {
+                  box.deleteAt(index);
+                  ScaffoldMessenger.of(
+                    context,
+                  ).showSnackBar(const SnackBar(content: Text("Task deleted")));
+                },
+                child: Card(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  elevation: 3,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Checkbox(
+                          value: task.isCompleted,
+                          onChanged: (value) {
+                            task.isCompleted = value!;
+                            task.save();
+                          },
+                        ),
 
-          const SizedBox(width: 8),
+                        const SizedBox(width: 8),
 
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  task.title,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    decoration: task.isCompleted
-                        ? TextDecoration.lineThrough
-                        : null,
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                task.title,
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                  decoration: task.isCompleted
+                                      ? TextDecoration.lineThrough
+                                      : null,
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                task.description,
+                                style: const TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.black54,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+
+                        IconButton(
+                          icon: const Icon(Icons.edit, color: Colors.indigo),
+                          onPressed: () async {
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) =>
+                                    EditTaskScreen(task: task, index: index),
+                              ),
+                            );
+                            setState(() {});
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                const SizedBox(height: 4),
-                Text(
-                  task.description,
-                  style: const TextStyle(fontSize: 14, color: Colors.black54),
-                ),
-              ],
-            ),
-          ),
-
-          IconButton(
-            icon: const Icon(Icons.edit, color: Colors.indigo),
-            onPressed: () async {
-              await Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (_) => EditTaskScreen(task: task, index: index),
-                ),
               );
-              setState(() {});
-            },
-          ),
-        ],
-      ),
-    ),
-  ),
-);
-
             },
           );
         },
