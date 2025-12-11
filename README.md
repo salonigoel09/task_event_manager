@@ -79,8 +79,7 @@ eventsBox → stores EventModel objects
 🛠 How to Build & Run the Project
 
 1️⃣ Clone the repository
-git clone <>
-cd task_event_manager_new
+git clone <https://github.com/salonigoel09/task_event_manager>
 
 2️⃣ Install dependencies
 flutter pub get
