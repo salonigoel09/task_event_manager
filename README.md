@@ -1,91 +1,119 @@
+---
 # 📱task_event_manager
 
 A new Flutter project.
 
-A simple and efficient mobile application to manage daily tasks and events.
-The app uses Hive for fast, offline local storage.
-All data persists after app restart, fulfilling the project requirement.
+A simple, clean, and efficient Flutter mobile application to manage daily tasks and events.
+The app uses Hive for fast, offline local storage, ensuring all data persists even after app restarts.
 
-🚀Features
-✔ Task Management
+---
+🚀 Features
+# ✅ Task Management
 
-Add new tasks
+➕ Add new tasks
 
-Edit tasks
+✏️ Edit existing tasks
 
-Mark tasks as completed
+✔️ Mark tasks as completed
 
-Long-press to delete a task
+🗑️ Long-press to delete a task
 
-Persistent local storage
+💾 Persistent local storage
 
-✔ Event Management
+# 📅 Event Management
 
-Add events with title, date, time
+➕ Add events with title, date & time
 
-Edit events
+✏️ Edit events
 
-Long-press to delete events
+🗑️ Long-press to delete events
 
-Stored locally with Hive
+💾 Events stored locally using Hive
 
-✔ General Features
+---
 
-Modern, clean UI
+🌟 General Features
 
-Bottom navigation for easy switching
+🎨 Modern & clean UI
 
-Fast load time
+🔀 Bottom navigation for easy switching
 
-Works completely offline
+⚡ Fast load time
+
+📶 Works completely offline
+
+🔁 Data remains available after app restart
 
 🧠 State Management
 
-The app uses setState() for state updates.
-Reason:
+The application uses setState() for managing state.
 
-Simple and efficient
+Why setState()?
 
-Built into Flutter (no external packages required)
+✔ Simple and efficient
 
-Ideal for small to medium apps
+✔ Built-in Flutter solution (no extra packages)
 
-Easy to understand and maintain
+✔ Ideal for small to medium-scale apps
 
-💾 Local Storage Method
-✔ Hive Database
+✔ Easy to understand and maintain
+
+---
+
+💾 Local Storage
+📦 Hive Database
 
 The project uses Hive, a lightweight and extremely fast NoSQL database for Flutter.
 
-Reasons for choosing Hive:
+Why Hive?
 
-Very fast reads/writes
+🚀 Very fast read & write operations
 
-Stores Dart objects directly using Adapters
+🧩 Stores Dart objects directly using adapters
 
-Zero boilerplate after setup
+🛠 Minimal boilerplate after setup
 
-Perfect for offline mobile apps
+📱 Perfect for offline-first mobile apps
 
-Data persists after the app restarts 🌟
+🔐 Data persists across app restarts
 
-Hive Boxes Used:
+🗂 Hive Boxes Used
 
-tasksBox → stores Task objects
+📌 tasksBox → Stores Task objects
 
-eventsBox → stores EventModel objects
+📌 eventsBox → Stores EventModel objects
 
+---
 
 🛠 How to Build & Run the Project
+1️⃣ Clone the Repository
+```bash
+ git clone https://github.com/salonigoel09/task_event_manager
+```
 
-1️⃣ Clone the repository
-git clone <https://github.com/salonigoel09/task_event_manager>
-
-2️⃣ Install dependencies
+2️⃣ Install Dependencies
+```bash
 flutter pub get
+```
 
 3️⃣ Generate Hive Adapters
+```bash
 flutter pub run build_runner build --delete-conflicting-outputs
+```
 
-4️⃣ Run the app
+4️⃣ Run the App
+```bash
 flutter run
+```
+---
+
+📌 Project Highlights
+
+Fully offline-capable app
+
+Clean architecture and readable code
+
+Efficient local storage using Hive
+
+Meets all assignment requirementsun build_runner build --delete-conflicting-outputs
+
